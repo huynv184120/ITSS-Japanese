@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import '../assets/css/signup-form.scss'
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
-import {signupHandle} from '../chat-module/component/auth/Auth';
+import signupHandle from '../chat-module/component/auth/Auth';
 
 export const SignupForm = () => {
   const navigate = useNavigate();

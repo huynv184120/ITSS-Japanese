@@ -2,7 +2,7 @@ import React, {useRef} from 'react'
 import '../assets/css/login-form.scss'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import {loginHandle} from '../chat-module/component/auth/Auth';
+import loginHandle from '../chat-module/component/auth/Auth';
 export const LoginForm = () => {
   const navigation = useNavigate();
 
