@@ -3,7 +3,8 @@ import { Header } from '../component/Header'
 import { Footer } from '../component/Footer'
 import { Outlet, useNavigate } from 'react-router-dom'
 import './../assets/css/home.scss'
-
+import {SymbolInvtation} from "../chat-module/component/anncounce/Invitations";
+import {socket} from '../Chat';
 
 export const Home = () => {
   const navigate = useNavigate()
@@ -25,6 +26,7 @@ export const Home = () => {
   return (
     <div>
       <Header content={homeContentMenu} />
+      <SymbolInvtation socket={socket}/>
       <div id="home">
         <div className="top-bg">
         </div>

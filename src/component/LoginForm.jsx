@@ -2,14 +2,14 @@ import React, {useRef} from 'react'
 import '../assets/css/login-form.scss'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
+import {loginHandle} from '../chat-module/component/auth/Auth';
 export const LoginForm = () => {
   const navigation = useNavigate();
 
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
 
-  const handleLogin = () => {
+  const handleLogin =  () => {
     axios.post("https://app-matching-friend.herokuapp.com/accounts/login", {
       email: emailRef.current.value, 
       password: passwordRef.current.value
@@ -24,6 +24,9 @@ export const LoginForm = () => {
     }).catch(e => {
         console.error(e);
     })
+    loginHandle({ email: emailRef.current.value, 
+        password: passwordRef.current.value});
+
   }
     return (
         <div className="login-form__right">
