@@ -1,33 +1,46 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import '../assets/css/signup-form.scss'
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+
 export const SignupForm = () => {
   const navigate = useNavigate();
 
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+
   const handleSignUp = () => {
-    localStorage.setItem('user', JSON.stringify({ userId: 2, name: 'Hiếu', sex: 0 }))
-    navigate('/user/home')
+    axios.post("https://app-matching-friend.herokuapp.com/accounts/create", {
+      name: nameRef.current.value, 
+      email: emailRef.current.value, 
+      password: passwordRef.current.value
+    }).then(res =>{
+      const {personId, name, sex} = res.data;
+      localStorage.setItem('user', JSON.stringify({ userId: personId, name, sex}))
+      navigate('/user/home')
+    })
   }
   return (
     <div className="signup-form__right">
       <div className="icon-close"><p onClick={() => navigate('/login')}>X</p></div>
       <div className="signup-form__input">
         <div className="group-input">
-          <input type="text" placeholder='Username' />
+          <input ref={nameRef} type="text" placeholder='Username' />
         </div>
         <div className="group-input">
-          <input type="email" placeholder='Email' />
+          <input ref={emailRef} type="email" placeholder='Email' />
         </div>
         <div className="group-input">
           <i className='bx bx-low-vision'></i>
-          <input type="password" placeholder='Password' />
+          <input ref={passwordRef} type="password" placeholder='Password' />
         </div>
         <div className="group-input">
           <i className='bx bx-low-vision'></i>
           <input type="password" placeholder='Confirm Password' />
         </div>
         <div className="button-group">
-          <button onClick={handleSignUp}>Sign Up</button>
+          <button onClick={() => handleSignUp()}>Sign Up</button>
           <button>Sign In</button>
         </div>
         <div className="divider">
