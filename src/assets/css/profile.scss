@@ -8,12 +8,27 @@
     margin-top: 130px;
     margin-bottom: 20px;
     padding: 25px;
+
     .profile-top {
+        .uppload-image {
+            padding: 20px;
+
+            button {
+                margin-top:10px;
+                padding:5px 10px;
+                border-radius: 25px;
+                border: none;
+                background-color: #4CAF50;
+                box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            }
+        }
+
         .short-profile {
-            
+
             width: 40%;
             display: flex;
             justify-content: space-between;
+
             img {
                 width: 130px;
                 height: 130px;
@@ -21,6 +36,7 @@
                 border-radius: 100%;
                 margin-right: 20px;
             }
+
             .short-info {
                 .short-info__email {
                     width: 206px;
@@ -34,6 +50,7 @@
                     margin: 5px 0 0 0;
                     padding: 0;
                 }
+
                 .short-info__name {
                     height: 49px;
                     font-family: 'Inder';
@@ -43,6 +60,7 @@
                     line-height: 25px;
                     color: #000000;
                 }
+
                 .short-info__age {
                     width: 63px;
                     height: 19px;
@@ -53,18 +71,22 @@
                     line-height: 19px;
                     color: #2E2E2E;
                 }
+
                 .old-area {
                     display: flex;
                     width: 100%;
                 }
+
                 .age-text {
                     flex-grow: 1;
                 }
             }
         }
+
         padding-bottom: 30px;
         border-bottom: 2px solid gray;
     }
+
     .btn {
         float: right;
         margin-top: 10px;
@@ -80,32 +102,40 @@
         box-shadow: 0 2px #999;
         color: #fff;
     }
+
     .btn-edit {
         background-color: #4CAF50;
     }
+
     .btn-save {
         background-color: #274891;
     }
+
     .input-50 {
         width: 40px;
     }
+
     .border-none {
         border: none;
         outline: none;
     }
+
     .profile-option {
         padding: 0;
         margin: 0;
+
         ul {
             margin-left: auto;
             margin-right: auto;
             display: flex;
             justify-content: center;
+
             li {
                 i {
                     // margin-right: 5px;
                     font-size: 18px;
                 }
+
                 margin-right: 1em;
                 display: inline-block;
                 padding: 10px 20px;
@@ -115,15 +145,18 @@
                 font-size: 15px;
                 line-height: 19px;
                 color: #000000;
+
                 &.active {
                     border-top: 3px solid gray;
                 }
             }
         }
     }
+
     .select-read-only {
         pointer-events: none;
     }
+
     .profile-title {
         text-align: center;
         padding: 0px 0 20px 0;
@@ -134,25 +167,30 @@
         color: #000000;
         display: flex;
         justify-content: center;
-        & > div{
+
+        &>div {
             padding: 10px 20px;
             box-sizing: border-box;
             color: gray;
             font-weight: 700;
             cursor: pointer;
-            &.active{
+
+            &.active {
                 border-top: 2px solid green;
             }
         }
     }
+
     .profile-content {
         padding: 0 50px;
         width: 100%;
+
         ul {
             width: 100%;
             display: flex;
             flex-wrap: wrap;
             list-style-type: circle;
+
             li {
                 width: calc(100% / 3);
                 font-family: 'Oxygen';
@@ -161,36 +199,42 @@
                 font-size: 15px;
                 line-height: 19px;
                 color: #000000;
-                input{
+
+                input {
                     font-size: 13px;
                     color: gray;
                 }
-                select{
+
+                select {
                     font-size: 13px;
                     color: gray;
                 }
             }
         }
     }
-    .edit-button{
+
+    .edit-button {
         display: flex;
         justify-content: end;
         padding-right: 50px;
         margin-top: 30px;
-        button{
+
+        button {
             padding: 10px 40px;
             border-radius: 25px;
-            border:none;
+            border: none;
             background-color: #4CAF50;
             box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-            &:hover{
+
+            &:hover {
                 box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
             }
-            &.save{
+
+            &.save {
                 background-color: pink;
                 color: white;
             }
         }
-        
+
     }
 }

@@ -4,7 +4,7 @@ import Avatar from '../assets/image/large_avatar.png'
 import axios from 'axios'
 
 const exUser = {
-    userId: 1,
+    userId: 23,
     name: 'Nguyễn An Ninh',
     avatar: Avatar,
     sex: 0,
@@ -17,7 +17,7 @@ const exUser = {
 }
 
 export const Profile = () => {
-
+    const [imageSelected, setImageSelected] = useState("")
     const [user, setUser] = useState(exUser)
     const [isEdit, changeEditState] = useState(false)
     const [tab, setTab] = useState(1)
@@ -27,11 +27,22 @@ export const Profile = () => {
 
     const onEditClickHandle = () => {
         if (isEdit) {
+            // const user = JSON.stringify(localStorage.getItem('user'))
             console.log(user)
+            // axios.put(`https://app-matching-friend.herokuapp.com/accounts/upload-profile`, user).then((response) => {
+            //     console.log(response)
+            // });
         }
         changeEditState(!isEdit);
     }
-
+    const uploadImage = () => {
+        const formData = new FormData();
+        formData.append("file", imageSelected);
+        formData.append("upload_preset", "lolicon");
+        axios.post("https://api.cloudinary.com/v1_1/dzgscwqqt/image/upload", formData).then((response) => {
+            setUser({ ...user, ["avatar"]: response.data.secure_url })
+        });
+    }
     useEffect(() => {
         axios.get(`https://app-matching-friend.herokuapp.com/accounts/23/profile`)
             .then((res) => {
@@ -62,6 +73,12 @@ export const Profile = () => {
                                 years old
                             </span>
                         </div>
+                    </div>
+                    <div className={`uppload-image ${isEdit ? 'd-block' : 'd-none'}`}>
+                        <input type="file" placeholder='Chọn ảnh đại diện' onChange={(event) => {
+                            setImageSelected(event.target.files[0]);
+                        }} />
+                        <button onClick={uploadImage}>Cập nhật ảnh</button>
                     </div>
                 </div>
 
