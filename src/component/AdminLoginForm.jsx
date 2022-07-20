@@ -21,7 +21,7 @@ export const AdminLoginForm = () => {
                     <i className='bx bx-low-vision'></i>
                     <input type="password" placeholder='Password' />
                 </div>
-                <div className="button-group">
+                <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-fit">
                     <button onClick={handleLogin}>Log In</button>
                 </div>
             </div>
