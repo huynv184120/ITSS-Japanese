@@ -20,7 +20,7 @@ export const AdminLoginForm = () => {
             })
             .then(res => {
                 const data = res.data
-                if(Object.keys(data).length > 1){
+                if(Object.keys(data).length > 1 && data.isAdmin === true){
                     localStorage.setItem('user', JSON.stringify({ userId: data.personId, name: data.name, sex: data.sex }))
                     navigate('/admin')
                 }
