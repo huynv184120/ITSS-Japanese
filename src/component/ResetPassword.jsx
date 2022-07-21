@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import '../assets/css/reset-password.scss'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useState } from 'react';
 
 export const ResetPassword = () => {
     const navigation = useNavigate();
@@ -9,12 +10,14 @@ export const ResetPassword = () => {
     const emailRef = useRef(null);
     const otpRef = useRef(null);
     const passwordRef = useRef(null);
+    const [isOTP, setIsOTP] = useState(true)
 
     const handleSendOtp = () => {
         axios.get(`https://app-matching-friend.herokuapp.com/accounts/reset-pass?email=${emailRef.current.value}`)
     }
 
     const handleResetPass = () => {
+        setIsOTP(!isOTP)
         axios.post("https://app-matching-friend.herokuapp.com/accounts/check-update-pass", {
             email: emailRef.current.value,
             otp: otpRef.current.value,
@@ -28,7 +31,7 @@ export const ResetPassword = () => {
                 navigation('/login/login-form')
             }
 
-            else{
+            else {
 
             }
         }).catch(e => {
@@ -44,18 +47,17 @@ export const ResetPassword = () => {
                     <input ref={emailRef} type="text" placeholder='Email' />
                     <p className="recieve-otp" onClick={() => handleSendOtp()}>Recieve OTP</p>
                 </div>
-                <div className="group-input">
-                    <i className='bx bx-low-vision'></i>
-                    <input ref={otpRef} type="text" placeholder='OTP' />
+                <div className={isOTP ? 'd-none': ''}>
+                    <div className="group-input">
+                        <i className='bx bx-low-vision'></i>
+                        <input ref={otpRef} type="text" placeholder='OTP' />
+                    </div>
+                    <div className="group-input">
+                        <i className='bx bx-low-vision'></i>
+                        <input ref={passwordRef} type="password" placeholder='Password' />
+                    </div>
                 </div>
-                <div className="group-input">
-                    <i className='bx bx-low-vision'></i>
-                    <input ref={passwordRef} type="password" placeholder='Password' />
-                </div>
-
-                
-
-                <button className="btn" onClick={() => handleResetPass()} >Submit</button>
+                <button className="btn" onClick={() => handleResetPass()} >{isOTP ? 'Get OTP' : 'Submit'}</button>
 
             </div>
 
