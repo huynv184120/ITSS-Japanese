@@ -144,7 +144,7 @@ export const Profile = () => {
                         </ul>
                 }
             </div>
-            <div className='edit-button'>
+            <div className={`edit-button ${param["id"]? 'd-none':''}`}>
                 <button hidden={isEdit} onClick={() => onEditClickHandle()}>Edit</button>
                 <button hidden={!isEdit} className='save' onClick={() => onEditClickHandle()}>Save</button>
             </div>

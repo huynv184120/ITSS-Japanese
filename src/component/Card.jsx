@@ -11,6 +11,9 @@ export const Card = ({ user }) => {
                 <div className="icon-avatar">
                     <img src={user.avatar} alt="" className="avatar" />
                 </div>
+                <div className="name-user">
+                    <p>{user.name}</p>
+                </div>
                 <div className="icon-message">
                     <a href="https://chat-client-itss.herokuapp.com/api/signup"><i className='bx bx-message-dots'></i></a>
                 </div>
