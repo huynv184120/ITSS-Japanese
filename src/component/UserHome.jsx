@@ -50,15 +50,7 @@ export const UserHome = () => {
   useEffect(() => {
     axios.get("https://app-matching-friend.herokuapp.com/accounts")
     .then(res => {
-      const dataAll = res.data
-      const allUser = dataAll.map(e => ({
-        image: e.avatar,
-        name: e.name? e.name : "",
-        avatar: e.avatar,
-        sex: e.sex,
-        address: e.location?.locationName
-      }))
-      updateAllUser(allUser)
+      updateAllUser(res.data)
     })
 
     axios.get(`https://app-matching-friend.herokuapp.com/features/top-match/${JSON.parse(localStorage.getItem("user")).userId}`)
@@ -76,6 +68,7 @@ export const UserHome = () => {
   }, [])
 
   const renderListUser = (users = []) => {
+    console.log(users)
     const colValue = [[], [], []]
     let counter = 0
     users.forEach((i, index) => {

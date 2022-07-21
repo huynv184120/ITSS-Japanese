@@ -4,22 +4,11 @@ import Avatar from '../assets/image/large_avatar.png'
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
 
-const exUser = {
-    userId: 23,
-    name: 'Nguyễn An Ninh',
-    avatar: Avatar,
-    sex: 0,
-    email: 'nguyenanninh@gmail.com',
-    age: 26,
-    height: 174,
-    weight: 74,
-    address: '33 Nguyễn An Ninh',
-    phone: '0818988577'
-}
+
 
 export const Profile = () => {
     const [imageSelected, setImageSelected] = useState("")
-    const [user, setUser] = useState(exUser)
+    const [user, setUser] = useState({})
     const [isEdit, changeEditState] = useState(false)
     const [tab, setTab] = useState(1)
     const [location, setLocation] = useState([])
@@ -47,7 +36,9 @@ export const Profile = () => {
     useEffect(() => {
         axios.get(`https://app-matching-friend.herokuapp.com/accounts/${param["id"] ? parseInt(param["id"]) : JSON.parse(localStorage.getItem('user')).userId}/profile`)
             .then((res) => {
-                setUser(res.data)
+                console.log(`https://app-matching-friend.herokuapp.com/accounts/${param["id"] ? parseInt(param["id"]) : JSON.parse(localStorage.getItem('user')).userId}/profile`)
+                setUser({...res.data})
+                console.log(res.data)
             }).catch((err) => console.log(err))
         axios.get(`https://app-matching-friend.herokuapp.com/locations`)
             .then((res) => {
@@ -69,7 +60,7 @@ export const Profile = () => {
                         <input readOnly={!isEdit} type="text" className="short-info__email border-none" defaultValue={user.email} />
                         <input readOnly={!isEdit} type="text" className="short-info__name border-none" defaultValue={user.name} />
                         <div className="short-info__age old-area">
-                            <input readOnly={!isEdit} type="number" className="input-50 border-none" defaultValue={22} />
+                            <input readOnly={!isEdit} type="number" className="input-50 border-none" defaultValue={user.age} />
                             <span className='age-text'>
                                 years old
                             </span>
