@@ -2,7 +2,6 @@ import React, {useRef} from 'react'
 import '../assets/css/login-form.scss'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import loginHandle from '../chat-module/component/auth/Auth';
 export const LoginForm = () => {
   const navigation = useNavigate();
 
@@ -16,7 +15,6 @@ export const LoginForm = () => {
     }).then(res =>{
         console.log(res);
         if (res.data) {
-            
             const {personId, name, sex} = res.data;
             localStorage.setItem('user', JSON.stringify({ userId: personId, name, sex}))
             navigation('/user/home')
@@ -24,9 +22,6 @@ export const LoginForm = () => {
     }).catch(e => {
         console.error(e);
     })
-    loginHandle({ email: emailRef.current.value, 
-        password: passwordRef.current.value});
-
   }
     return (
         <div className="login-form__right">

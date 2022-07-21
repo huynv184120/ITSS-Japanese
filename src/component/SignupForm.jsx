@@ -2,7 +2,6 @@ import React, { useRef } from 'react'
 import '../assets/css/signup-form.scss'
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
-import signupHandle from '../chat-module/component/auth/Auth';
 
 export const SignupForm = () => {
   const navigate = useNavigate();
@@ -21,9 +20,7 @@ export const SignupForm = () => {
       localStorage.setItem('user', JSON.stringify({ userId: personId, name, sex}))
       navigate('/user/home')
     })
-    signupHandle({username: nameRef.current.value, 
-      email: emailRef.current.value, 
-      password: passwordRef.current.value})
+   
   }
   return (
     <div className="signup-form__right">

@@ -1,5 +1,5 @@
 import React from 'react'
-import {ResetPassword} from './component/ResetPassword'
+import { ResetPassword } from './component/ResetPassword'
 import {
   Route, Routes
 } from 'react-router-dom'
@@ -8,12 +8,12 @@ import { LoginForm } from './component/LoginForm'
 import { Profile } from './component/Profile'
 import { SignupForm } from './component/SignupForm'
 import { UserHome } from './component/UserHome'
-import  Chat  from './Chat'
+import { Chat } from './page/Chat'
 import { Home } from './page/Home'
 import { Login } from './page/Login'
 import { PageNotFound } from './page/PageNotFound'
-import {Admin} from './page/Admin'
-import {AdminLoginForm} from './component/AdminLoginForm'
+import { Admin } from './page/Admin'
+import { AdminLoginForm } from './component/AdminLoginForm'
 
 
 function App() {

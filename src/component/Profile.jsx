@@ -29,9 +29,9 @@ export const Profile = () => {
         if (isEdit) {
             // const user = JSON.stringify(localStorage.getItem('user'))
             console.log(user)
-            // axios.put(`https://app-matching-friend.herokuapp.com/accounts/upload-profile`, user).then((response) => {
-            //     console.log(response)
-            // });
+            axios.put(`https://app-matching-friend.herokuapp.com/accounts/upload-profile`, user).then((response) => {
+                console.log(response)
+            });
         }
         changeEditState(!isEdit);
     }
