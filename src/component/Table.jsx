@@ -113,7 +113,7 @@ export const Table = ({ type }) => {
                                             Religion: {obj.religion}
                                         </p>
                                         <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-                                            Location: {obj.location.locationName}
+                                            Location: {obj.location?.locationName}
                                         </p>
                                     </div>
                                     <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
