@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import '../assets/css/signup-form.scss'
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
@@ -9,18 +9,25 @@ export const SignupForm = () => {
   const nameRef = useRef(null);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+  const [notification, updateNoti] = useState("");
 
   const handleSignUp = () => {
-    axios.post("https://app-matching-friend.herokuapp.com/accounts/create", {
-      name: nameRef.current.value, 
-      email: emailRef.current.value, 
-      password: passwordRef.current.value
-    }).then(res =>{
-      const {personId, name, sex} = res.data;
-      localStorage.setItem('user', JSON.stringify({ userId: personId, name, sex}))
-      navigate('/user/home')
-    })
-   
+    if (nameRef.current.value && emailRef.current.value && passwordRef.current.value) {
+      axios.post("https://app-matching-friend.herokuapp.com/accounts/create", {
+        name: nameRef.current.value,
+        email: emailRef.current.value,
+        password: passwordRef.current.value
+      }).then(res => {
+        updateNoti("Sign up success!")
+        const { personId, name, sex } = res.data;
+        localStorage.setItem('user', JSON.stringify({ userId: personId, name, sex }))
+        navigate('/user/home')
+      })
+    }
+    else {
+      updateNoti("Please Fill Input!")
+    }
+
   }
   return (
     <div className="signup-form__right">
@@ -40,20 +47,22 @@ export const SignupForm = () => {
           <i className='bx bx-low-vision'></i>
           <input type="password" placeholder='Confirm Password' />
         </div>
+        
         <div className="button-group">
           <button onClick={() => handleSignUp()}>Sign Up</button>
           <button>Sign In</button>
         </div>
-        <div className="divider">
+        <p className={`error-notification ${!notification ? "hidden-err" : ""}`} >{notification}</p>
+        {/* <div className="divider">
           <div className="divider__line"></div>
           <div className="divider__text">Or</div>
           <div className="divider__line"></div>
-        </div>
+        </div> */}
       </div>
-      <div className="signup-form__option">
+      {/* <div className="signup-form__option">
         <div className="option-google"></div>
         <div className="option-facebook"></div>
-      </div>
+      </div> */}
     </div>
   )
 }

@@ -39,7 +39,7 @@ const exListUser = [
 ]
 
 export const UserHome = () => {
-  const listOptions = [{ id: -1, label: 'All' }, { id: 0, label: 'Male' }, { id: 1, label: 'Female' }]
+  const listOptions = [{ id: -1, label: 'All' }, { id: 1, label: 'Male' }, { id: 2, label: 'Female' }]
   const [currentOption, setCurrentOption] = useState(-1)
 
   const [conditionFilter, setConditionFilter] = useState("")
@@ -53,7 +53,7 @@ export const UserHome = () => {
       const dataAll = res.data
       const allUser = dataAll.map(e => ({
         image: e.avatar,
-        name: e.name? e.name : "Anonymous",
+        name: e.name? e.name : "",
         avatar: e.avatar,
         sex: e.sex,
         address: e.location?.locationName
@@ -66,7 +66,7 @@ export const UserHome = () => {
       const dataFilter = res.data
       const filterUser = dataFilter.map(e => ({
         image: e.avatar,
-        name: e.name? e.name : "Anonymous",
+        name: e.name? e.name : "",
         avatar: e.avatar,
         sex: e.sex,
         address: e.location?.locationName

@@ -6,15 +6,12 @@
         margin: 10px 10px;
         cursor: pointer;
     }
-
     .signup-form__input {
         width: 70%;
         margin: 15px 15% 10px 15%;
-
         .group-input {
             position: relative;
             margin-bottom: 15px;
-
             input {
                 display: block;
                 width: 100%;
@@ -31,19 +28,16 @@
                 font-size: 15px;
                 line-height: 19px;
                 color: #7B7B7B;
-
                 &:last-child {
                     padding-right: 35px;
                 }
             }
-
             i {
                 position: absolute;
                 right: 10px;
                 line-height: 40px;
                 font-size: 20px;
             }
-
             p {
                 margin-top: 5px;
                 text-align: end;
@@ -53,28 +47,23 @@
                 font-size: 12px;
                 line-height: 15px;
                 color: #565353;
-
                 &:hover {
                     text-decoration: solid;
                 }
             }
-
             &:last-child {
                 margin-bottom: 28px;
             }
         }
-
         .divider {
             display: flex;
             justify-content: space-between;
-
             .divider__line {
                 width: 40%;
                 height: 1.03px;
                 background: #949494;
                 margin-top: 7px;
             }
-
             .divider__text {
                 font-family: 'Inder';
                 font-style: normal;
@@ -84,12 +73,18 @@
                 display: flex;
                 align-items: center;
                 text-align: center;
-
                 color: #494949;
             }
         }
     }
-
+    .error-notification {
+        color: red !important;
+        float: left;
+        font-size: 15px !important;
+    }
+    .hidden-err {
+        visibility: hidden;
+    }
     .button-group {
         display: flex;
         justify-content: space-between;
@@ -106,22 +101,18 @@
                 color: white;
                 background-color: #e4176c;
             }
-
             &:last-child {
                 color: #e4176c;
                 background-color: white;
             }
         }
-
         margin-bottom:17px;
     }
-
     .signup-form__option {
         display: flex;
         justify-content: space-around;
         margin-left: 15%;
         margin-right: 15%;
-
         div {
             width: 103px;
             height: 71px;
@@ -131,20 +122,15 @@
             background-position: center;
             box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
             cursor: pointer;
-
             &:first-child {
                 background-image: url(../image/flat-color-icons_google.png);
             }
-
             &:last-child {
                 background-image: url(../image/logos_facebook.png);
             }
-
             &:hover {
                 box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
             }
         }
     }
-
-
 }

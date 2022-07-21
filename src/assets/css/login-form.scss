@@ -63,6 +63,14 @@
             color: red;
             text-decoration: underline;
         }
+        .error-notification {
+            color: red !important;
+            float: left;
+            font-size: 15px !important;
+        }
+        .hidden-err {
+            visibility: hidden;
+        }
         .divider {
             display: flex;
             justify-content: space-between;

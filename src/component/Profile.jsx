@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import '../assets/css/profile.scss'
 import Avatar from '../assets/image/large_avatar.png'
 import axios from 'axios'
+import { useParams } from 'react-router-dom';
 
 const exUser = {
     userId: 23,
@@ -23,7 +24,7 @@ export const Profile = () => {
     const [tab, setTab] = useState(1)
     const [location, setLocation] = useState([])
     const [freeTimeAction, setFreeTimeAction] = useState([])
-
+    const param = useParams()
 
     const onEditClickHandle = () => {
         if (isEdit) {
@@ -44,7 +45,7 @@ export const Profile = () => {
         });
     }
     useEffect(() => {
-        axios.get(`https://app-matching-friend.herokuapp.com/accounts/23/profile`)
+        axios.get(`https://app-matching-friend.herokuapp.com/accounts/${param["id"] ? parseInt(param["id"]) : JSON.parse(localStorage.getItem('user')).userId}/profile`)
             .then((res) => {
                 setUser(res.data)
             }).catch((err) => console.log(err))
