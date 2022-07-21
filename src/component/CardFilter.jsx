@@ -3,7 +3,7 @@ import '../assets/css/card-filter.scss'
 export const CardFilter = ({ user }) => {
   return (
     <div id='card-filter'>
-      <img src={user.image} alt="" />
+      <img src={user.avatar} alt="" />
       <div className="cart-filter__info">
         <p className="name">{user.name}</p>
         <div className='infor'>
