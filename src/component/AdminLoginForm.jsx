@@ -34,6 +34,7 @@ export const AdminLoginForm = () => {
 
     return (
         <div className="login-form__right">
+            <h1>Đăng nhập bằng tài khoản admin</h1>
             <div className="icon-close"><p onClick={() => navigate('/login')}>X</p></div>
             <div className="login-form__input">
                 <div className="group-input">
