@@ -12,6 +12,8 @@ export const Card = ({ user }) => {
                 </div>
                 <div className="name-user">
                     <p>{user.name}</p>
+                    <p>{user.age}</p>
+                    <p>{user.sex == 1 ? 'Nam' : 'Nữ'}</p>
                 </div>
                 <div className="icon-message">
                     <a href="https://chat-client-itss.herokuapp.com/api/signup"><i className='bx bx-message-dots'></i></a>
