@@ -4,14 +4,16 @@ import '../assets/css/card.scss'
 export const Card = ({ user }) => {
     const navigate = useNavigate()
     return (
-        <div id='card' onClick={()=> navigate(`/user/home/profile/${user.personId}`)}>
-            <img src={user.avatar} alt="" className="image"/>
+        <div id='card' onClick={() => navigate(`/user/home/profile/${user.personId}`)}>
+            <img src={user.avatar} alt="" className="image" />
             <div className="card-footer">
                 <div className="icon-avatar">
                     <img src={user.avatar} alt="" className="avatar" />
                 </div>
                 <div className="name-user">
                     <p>{user.name}</p>
+                </div>
+                <div className='infor'>
                     <p>{user.age}</p>
                     <p>{user.sex == 1 ? 'Nam' : 'Nữ'}</p>
                 </div>
