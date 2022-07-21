@@ -55,15 +55,8 @@ export const UserHome = () => {
 
     axios.get(`https://app-matching-friend.herokuapp.com/features/top-match/${JSON.parse(localStorage.getItem("user")).userId}`)
     .then(res => {
-      const dataFilter = res.data
-      const filterUser = dataFilter.map(e => ({
-        image: e.avatar,
-        name: e.name? e.name : "",
-        avatar: e.avatar,
-        sex: e.sex,
-        address: e.location?.locationName
-      }))
-      updateFilterUser(filterUser)
+  
+      updateFilterUser(res.data)
     })
   }, [])
 

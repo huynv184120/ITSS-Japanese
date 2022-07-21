@@ -58,7 +58,6 @@ export const ResetPassword = () => {
                     </div>
                 </div>
                 <button className="btn" onClick={() => handleResetPass()} >{isOTP ? 'Get OTP' : 'Submit'}</button>
-
             </div>
 
         </div>
