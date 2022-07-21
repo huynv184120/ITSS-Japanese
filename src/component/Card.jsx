@@ -6,7 +6,6 @@ export const Card = ({ user }) => {
     return (
         <div id='card' onClick={()=> navigate(`/user/home/profile/${user.personId}`)}>
             <img src={user.avatar} alt="" className="image"/>
-            <p>{user.name}</p>
             <div className="card-footer">
                 <div className="icon-avatar">
                     <img src={user.avatar} alt="" className="avatar" />
