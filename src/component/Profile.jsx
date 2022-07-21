@@ -17,10 +17,7 @@ export const Profile = () => {
 
     const onEditClickHandle = () => {
         if (isEdit) {
-            // const user = JSON.stringify(localStorage.getItem('user'))
-            console.log(user)
             axios.post(`https://app-matching-friend.herokuapp.com/accounts/update-profile`, user).then((response) => {
-                console.log(response)
             });
         }
         changeEditState(!isEdit);
@@ -36,9 +33,7 @@ export const Profile = () => {
     useEffect(() => {
         axios.get(`https://app-matching-friend.herokuapp.com/accounts/${param["id"] ? parseInt(param["id"]) : JSON.parse(localStorage.getItem('user')).userId}/profile`)
             .then((res) => {
-                console.log(`https://app-matching-friend.herokuapp.com/accounts/${param["id"] ? parseInt(param["id"]) : JSON.parse(localStorage.getItem('user')).userId}/profile`)
                 setUser({...res.data})
-                console.log(res.data)
             }).catch((err) => console.log(err))
         axios.get(`https://app-matching-friend.herokuapp.com/locations`)
             .then((res) => {
